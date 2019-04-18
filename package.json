@@ -1,0 +1,32 @@
+{
+  "name": "sushi",
+  "version": "1.0.0",
+  "description": "dine on sushi with handlebars",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kinla/sushi.git"
+  },
+  "keywords": [
+    "sushi",
+    "express",
+    "handlebars",
+    "node",
+    "mysql"
+  ],
+  "author": "Sharon Chien",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kinla/sushi/issues"
+  },
+  "homepage": "https://github.com/Kinla/sushi#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mysql": "^2.17.0"
+  }
+}
