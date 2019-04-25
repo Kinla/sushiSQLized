@@ -19,3 +19,14 @@ let orm = {
 }
 
 module.exports = orm
+
+/*
+selectAll: function(tableName, callback) {
+        var queryString = "SELECT * FROM ??"
+        connection.query(queryString,[tableName],function(err,result) {
+            if (err) throw err
+            callback(result)
+        })
+    },
+
+*/
