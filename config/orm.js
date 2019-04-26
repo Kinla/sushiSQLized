@@ -1,32 +1,40 @@
 const connection = require("connection.js")
 
-let orm = {
-    selectAll: (callback) =>{
+const orm = {
+    selectAll: (tableName, callback) =>{
+        const queryStr = "SELECT * FROM ??"
         connection.query(
-            "SELECT * from sushi",
+            queryStr,
+            [tableName],
             (err, res) => {
                 if (err) throw err
                 callback(res)
             }
         )
     },
-    insertOne: () => {
-
+    insertOne: (tableName, colName, colVal, callback) => {
+        const queryStr = "INSERT INTO ?? SET ?? = ?"
+        connection.query(
+            queryStr, 
+            [tableName, colName, colVal],
+            (err, res) => {
+                if (err) throw err
+                callback(res)
+            }
+        )
     },
-    updateOne: () => {
-
+    updateOne: (tableName, colName, colValue, selectCol, selectVal, callback) => {
+        const queryStr = "UPDATE ?? SET ?? = ? WHERE ?? = ?"
+        connection.query(
+            queryStr,
+            [tableName, colName, colValue, selectCol, selectVal],
+            (err, res) => {
+                if (err) throw err
+                callback(res)
+            }
+        )
     }
 }
 
-module.exports = orm
+module.exports = orm, console.log("orm.js loaded")
 
-/*
-selectAll: function(tableName, callback) {
-        var queryString = "SELECT * FROM ??"
-        connection.query(queryString,[tableName],function(err,result) {
-            if (err) throw err
-            callback(result)
-        })
-    },
-
-*/
