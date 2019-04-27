@@ -21,7 +21,13 @@ const model = {
     },
     updateById: (id, callback) => {
         orm.updateOne("sushi", "devoured", true, "id", id, callback)
-    } 
+    },
+    deleteByName: (sushiName, callback) => {
+        orm.deleteOne("sushi", "sushi_name", sushiName, callback)
+    },
+    deleteByID: (id, callback) => {
+        orm.deleteOne("sushi", "id", id, callback)
+    }
 }
 
 module.exports = model

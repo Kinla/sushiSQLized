@@ -1,4 +1,4 @@
-const connection = require("connection.js")
+const connection = require("./connection.js")
 
 const orm = {
     selectAll: (tableName, callback) =>{
@@ -28,6 +28,17 @@ const orm = {
         connection.query(
             queryStr,
             [tableName, colName, colValue, selectCol, selectVal],
+            (err, res) => {
+                if (err) throw err
+                callback(res)
+            }
+        )
+    },
+    deleteOne: (tableName, selectCol, selectVal, callback) => {
+        const queryStr = "DELETE FROM ?? WHERE ?? = ?"
+        connection.query(
+            queryStr,
+            [tableName, selectCol, selectVal],
             (err, res) => {
                 if (err) throw err
                 callback(res)

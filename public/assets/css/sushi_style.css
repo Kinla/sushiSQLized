@@ -1,0 +1,13 @@
+body {
+    background: #f4da9f
+}
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+.title {
+    color: #c72e2f
+}
+textarea {
+    max-width: 500px
+}
