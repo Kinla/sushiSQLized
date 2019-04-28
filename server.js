@@ -1,40 +1,18 @@
-/*
-router.get('/', function(req,res){
-    burger.all(function(data) {
-        console.log(data)
-        var hbsObj = {
-            burgers: data
-        }
-        res.render('index',hbsObj)
-    })
-})
-*/
 // Set up express
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(__dirname + "/public"))
+
+// Define static content folder
+app.use(express.static("public"));
 
 // Set up routes
-const route = require("./controllers/sushi_controller.js")
-app.get("/", (req, res) => {
-    res.render("index")
-})
-
-
-//route.get(app)
-//route.post(app)
-//route.put(app)
-
-// Callback functions to pass into routes
-//
-//
-//
-//
-
-
+const routes = require("./controllers/sushi_controller.js");
+app.use(routes);
 
 // Set up handlebars
 const exphbs = require("express-handlebars");
