@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 
   // Your password
   password: "root",
-  database: "sushi_DB"
+  database: "sushi_db"
 });
 
 connection.connect();
