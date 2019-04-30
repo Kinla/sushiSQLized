@@ -73,4 +73,11 @@ $(() => {
             location.reload()
         })
     })
+
+    //function controlling a CSS element
+    if($(window).height() < $(document).height()){
+        $(".help").removeClass("hidden")
+    } else {
+        $(".help").addClass("hidden")
+    }
 })
