@@ -14,7 +14,7 @@ $(() => {
         let newSushiName = $("#sushiName").val().trim()
 
         if(!newSushiName) {
-            alert("There is no such thing as an invisible sushi")
+            alert("There is no such thing as an invisible sushi.")
             return
         }
 
