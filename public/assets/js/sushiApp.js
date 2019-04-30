@@ -49,4 +49,20 @@ $(() => {
             location.reload();
         })
     })
+
+    $(".delete").on("click", function() {
+        let id = $(this).data("id")
+
+        let deleteId = {
+            id: id
+        }
+
+        $.ajax("/api/sushi/" + id ,{
+            type: "DELETE",
+            data: deleteId
+        }).then(() => {
+            location.reload()
+        })
+
+    })
 })

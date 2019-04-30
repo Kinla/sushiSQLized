@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 router.post("/api/sushi", (req, res) => {
     let sushiName = req.body.name
     sushi.insert(sushiName, (result) => {
-        res.json({ id: result.insertId });
+        res.end()
     })
 })
 
@@ -29,6 +29,13 @@ router.put("/api/sushi/:id", (req, res) => {
         } else {
             res.status(200).end()
         }
+    })
+})
+
+router.delete("/api/sushi/:id", (req, res) => {
+    let id = req.body.id
+    sushi.deleteByID(id, (result) => {
+        res.end()
     })
 })
 

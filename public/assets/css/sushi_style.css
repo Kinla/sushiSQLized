@@ -15,11 +15,20 @@ textarea {
     max-width: 400px
 }
 
-.sushi, .eat, .eaten {
-    height: 30px
+.delete, .sushi, .eat, .eaten {
+    height: 30px;
+    overflow:auto;
 }
 
-.eat {
+.sushi p, .eaten p {
+    margin: 0;
+}
+
+.remove {
+    width: 30px;
+}
+
+.eat, .delete {
     padding: 0px;
 }
 

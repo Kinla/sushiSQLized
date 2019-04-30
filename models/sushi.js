@@ -20,18 +20,8 @@ const model = {
             callback(res)
         })
     },
-    updateByName: (sushiName, callback) => {
-        orm.updateOne("sushi", "devoured", true, "sushi_name", sushiName, (res) => {
-            callback(res)
-        })    
-    },
     updateById: (id, callback) => {
         orm.updateOne("sushi", "devoured", true, "id", id, (res) => {
-            callback(res)
-        })
-    },
-    deleteByName: (sushiName, callback) => {
-        orm.deleteOne("sushi", "sushi_name", sushiName, (res) => {
             callback(res)
         })
     },
