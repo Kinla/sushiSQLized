@@ -33,8 +33,17 @@ router.put("/api/sushi/:id", (req, res) => {
 })
 
 router.delete("/api/sushi/:id", (req, res) => {
+    let col = "id"
     let id = req.body.id
-    sushi.deleteByID(id, (result) => {
+    sushi.deleteByCondition(col, id, (result) => {
+        res.end()
+    })
+})
+
+router.delete("/api/sushi", (req, res) => {
+    let col = "devoured"
+    let val = true
+    sushi.deleteByCondition(col, val, (result) => {
         res.end()
     })
 })

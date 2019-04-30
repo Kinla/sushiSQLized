@@ -65,4 +65,12 @@ $(() => {
         })
 
     })
+
+    $(".helpBtn").on("click", function() {
+        $.ajax("/api/sushi", {
+            type: "DELETE"
+        }).then(() => {
+            location.reload()
+        })
+    })
 })

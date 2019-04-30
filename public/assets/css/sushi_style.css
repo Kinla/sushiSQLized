@@ -43,3 +43,8 @@ textarea {
 .devoured {
     color: gray
 }
+
+.helpBtn {
+    display: inline-block;
+    vertical-align: text-bottom
+}

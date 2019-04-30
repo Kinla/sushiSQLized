@@ -25,8 +25,8 @@ const model = {
             callback(res)
         })
     },
-    deleteByID: (id, callback) => {
-        orm.deleteOne("sushi", "id", id, (res) => {
+    deleteByCondition: (col, val, callback) => {
+        orm.deleteOne("sushi", col, val, (res) => {
             callback(res)
         })
     }
