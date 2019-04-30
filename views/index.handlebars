@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="menu col-4 ml-auto">
+    <div class="menu col-5 ml-auto">
         {{#each sushi}}
-            {{#unless devour}}
+            {{#unless devoured}}
             <div class="card px-2 align-middle mt-1 sushi" data-id="{{id}}">
-                <p>{{name}}</p>
+                <p>{{sushi_name}}</p>
             </div>
             {{/unless}}
         {{/each}}
@@ -11,7 +11,7 @@
 
     <div class="devour">
         {{#each sushi}}
-            {{#unless devour}}
+            {{#unless devoured}}
             <button class="btn btn-outline-danger px-2 align-middle w-100 mt-1 eat" data-id="{{id}}">
                 Devour!
             </button>
@@ -19,11 +19,11 @@
         {{/each}}
     </div>
 
-    <div class="eaten col-4 mr-auto">
+    <div class="tummy col-4 mr-auto">
         {{#each sushi}}
-            {{#if devour}}
+            {{#if devoured}}
             <div class="card px-2 align-middle mt-1 eaten" data-id="{{id}}">
-                <p>{{name}}</p>
+                <p class="devoured">{{sushi_name}}</p>
             </div>
             {{/if}}
         {{/each}}

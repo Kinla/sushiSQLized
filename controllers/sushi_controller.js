@@ -15,16 +15,15 @@ router.get("/", (req, res) => {
 })
 
 router.post("/api/sushi", (req, res) => {
-    const sushi = req.body.sushiName
-    sushi.insert(sushi, (result) => {
+    let sushiName = req.body.name
+    sushi.insert(sushiName, (result) => {
         res.json({ id: result.insertId });
     })
 })
 
 router.put("/api/sushi/:id", (req, res) => {
-    const id = req.body.id
+    let id = req.body.id
     sushi.updateById(id, (result) => {
-        console.log(`server side: ${result}`)
         if (result.changedRows === 0) {
             res.status(404).end()
         } else {
