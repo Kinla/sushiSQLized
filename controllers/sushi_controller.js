@@ -1,41 +1,48 @@
-const sushi = require("../models/sushi.js")
+const Sushi = require("../models/sushi.js")
 
 const express = require("express")
 const router = express.Router()
 
 // Router
-
 router.get("/", (req, res) => {
-    sushi.all((data) => {
+    Sushi.findAll({}).then((data) => {
         const sushiObj = {
             sushi: data
         }
         res.render("index", sushiObj)
+
     })
 })
 
 router.post("/api/sushi", (req, res) => {
-    let sushiName = req.body.name
-    sushi.insert(sushiName, (result) => {
+    let sushi = {
+        sushi_name: req.body.name,
+        devoured: false
+    }
+    Sushi.create(sushi).then(() => {
         res.end()
     })
 })
 
 router.put("/api/sushi/:id", (req, res) => {
     let id = req.body.id
-    sushi.updateById(id, (result) => {
-        if (result.changedRows === 0) {
-            res.status(404).end()
-        } else {
-            res.status(200).end()
-        }
+    Sushi.update(
+        {devoured: true},
+        {where: {id: id}}
+    ).then(()=> {
+        res.status(200).end()
+    }).catch(() => {
+        res.status(404).end()
     })
 })
 
 router.delete("/api/sushi/:id", (req, res) => {
-    let col = "id"
     let id = req.body.id
-    sushi.deleteByCondition(col, id, (result) => {
+    Sushi.destroy({
+        where: {
+            id: id
+        }
+    }).then(() => {
         res.end()
     })
 })
@@ -43,7 +50,11 @@ router.delete("/api/sushi/:id", (req, res) => {
 router.delete("/api/sushi", (req, res) => {
     let col = "devoured"
     let val = true
-    sushi.deleteByCondition(col, val, (result) => {
+    Sushi.destroy({
+        where: {
+            devoured: val
+        }
+    }).then(() => {
         res.end()
     })
 })

@@ -1,25 +1,21 @@
-const mysql = require("mysql");
-let connection;
+// *********************************************************************************
+// CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
+// *********************************************************************************
 
-if (process.env.JAWSDB_URL){
-  connection = mysql.createConnection(process.env.JAWSDB_URL)
-} else {
-  connection = mysql.createConnection({
-    host: "localhost",
-  
-    // Your port; if not 3306
-    port: 3306,
-  
-    // Your username
-    user: "root",
-  
-    // Your password
-    password: "root",
-    database: "sushi_db"
-  });
-}
+// Dependencies
+var Sequelize = require("sequelize");
 
-connection.connect();
+// Creates mySQL connection using Sequelize
+var sequelize = new Sequelize("sushi_db", "root", "root", {
+  host: "localhost",
+  port: 3306,
+  dialect: "mysql",
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
+});
 
-
-module.exports = connection
+// Exports the connection for other files to use
+module.exports = sequelize;
