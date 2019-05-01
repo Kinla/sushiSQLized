@@ -24,6 +24,10 @@ textarea {
     margin: 0;
 }
 
+.lists {
+    height: 36px;
+}
+
 .remove {
     width: 30px;
 }
@@ -51,4 +55,8 @@ textarea {
 
 .hidden {
     display: none;
+}
+
+.menu {
+    flex-grow: 1
 }

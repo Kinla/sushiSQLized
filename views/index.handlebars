@@ -1,32 +1,44 @@
+<div class="row text-center">
+    <div class="col-4 ml-auto">
+        <h4 class="bg-danger rounded text-white align-middle lists">On the Plate</h4>
+    </div>
+
+    <div class="col-4 mr-auto">
+        <h4 class="bg-danger rounded text-white align-middle lists">In the Tummy</h4>
+    </div>
+</div>
+
 <div class="row">
-    <div class="remove ml-auto">
-        {{#each sushi}}
-            {{#unless devoured}}
-            <button class="btn btn-outline-danger px-2 align-middle w-100 mt-1 delete" data-id="{{id}}">
-                x
-            </button>
-            {{/unless}}
-        {{/each}}
-    </div>
+    <div class="col-4 ml-auto d-flex flex-row">
+        <div class="remove mr-auto">
+            {{#each sushi}}
+                {{#unless devoured}}
+                <button class="btn btn-outline-danger px-2 align-middle w-100 mt-1 delete" data-id="{{id}}">
+                    x
+                </button>
+                {{/unless}}
+            {{/each}}
+        </div>
 
-    <div class="menu col-4">
-        {{#each sushi}}
-            {{#unless devoured}}
-            <div class="card px-2 align-middle mt-1 sushi" data-id="{{id}}">
-                <p>{{sushi_name}}</p>
-            </div>
-            {{/unless}}
-        {{/each}}
-    </div>
+        <div class="menu mx-1">
+            {{#each sushi}}
+                {{#unless devoured}}
+                <div class="card px-2 align-middle mt-1 sushi" data-id="{{id}}">
+                    <p>{{sushi_name}}</p>
+                </div>
+                {{/unless}}
+            {{/each}}
+        </div>
 
-    <div class="devour">
-        {{#each sushi}}
-            {{#unless devoured}}
-            <button class="btn btn-danger px-2 align-middle w-100 mt-1 eat" data-id="{{id}}">
-                Feed!
-            </button>
-            {{/unless}}
-        {{/each}}
+        <div class="devour ml-auto">
+            {{#each sushi}}
+                {{#unless devoured}}
+                <button class="btn btn-danger px-2 align-middle w-100 mt-1 eat" data-id="{{id}}">
+                    Feed!
+                </button>
+                {{/unless}}
+            {{/each}}
+        </div>
     </div>
 
     <div class="tummy col-4 mr-auto">
