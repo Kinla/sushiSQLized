@@ -1,11 +1,11 @@
-const Sushi = require("../models/sushi.js")
+const db = require("../models")
 
 const express = require("express")
 const router = express.Router()
 
 // Router
 router.get("/", (req, res) => {
-    Sushi.findAll({}).then((data) => {
+    db.Sushi.findAll({}).then((data) => {
         const sushiObj = {
             sushi: data
         }
@@ -19,14 +19,14 @@ router.post("/api/sushi", (req, res) => {
         sushi_name: req.body.name,
         devoured: false
     }
-    Sushi.create(sushi).then(() => {
+    db.Sushi.create(sushi).then(() => {
         res.end()
     })
 })
 
 router.put("/api/sushi/:id", (req, res) => {
     let id = req.body.id
-    Sushi.update(
+    db.Sushi.update(
         {devoured: true},
         {where: {id: id}}
     ).then(()=> {
@@ -38,7 +38,7 @@ router.put("/api/sushi/:id", (req, res) => {
 
 router.delete("/api/sushi/:id", (req, res) => {
     let id = req.body.id
-    Sushi.destroy({
+    db.Sushi.destroy({
         where: {
             id: id
         }
@@ -48,9 +48,8 @@ router.delete("/api/sushi/:id", (req, res) => {
 })
 
 router.delete("/api/sushi", (req, res) => {
-    let col = "devoured"
     let val = true
-    Sushi.destroy({
+    db.Sushi.destroy({
         where: {
             devoured: val
         }
