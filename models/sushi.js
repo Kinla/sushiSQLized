@@ -1,17 +1,26 @@
-module.exports = (sequelize, Sequelize) => {
+module.exports = (sequelize, DataTypes) => {
     let Sushi = sequelize.define("Sushi", {
         sushi_name: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1,50]
             }
         },
         devoured: {
-            type: Sequelize.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             defaultValue: false
         }
     })
+
+    Sushi.associate = function(models) {
+        Sushi.belongsTo(models.Servant, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+      };
+
     return Sushi
 }
 

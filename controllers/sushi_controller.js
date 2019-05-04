@@ -5,7 +5,9 @@ const router = express.Router()
 
 // Router
 router.get("/", (req, res) => {
-    db.Sushi.findAll({}).then((data) => {
+    db.Sushi.findAll({
+        include: [db.Servant]
+    }).then((data) => {
         const sushiObj = {
             sushi: data
         }

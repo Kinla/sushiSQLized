@@ -13,9 +13,7 @@
         <div class="remove mr-auto">
             {{#each sushi}}
                 {{#unless devoured}}
-                <button class="btn btn-outline-danger px-2 align-middle w-100 mt-1 delete" data-id="{{id}}">
-                    x
-                </button>
+                    {{> delete}}
                 {{/unless}}
             {{/each}}
         </div>
@@ -23,9 +21,7 @@
         <div class="menu mx-1">
             {{#each sushi}}
                 {{#unless devoured}}
-                <div class="card px-2 align-middle mt-1 sushi" data-id="{{id}}">
-                    <p>{{sushi_name}}</p>
-                </div>
+                    {{> dish}}
                 {{/unless}}
             {{/each}}
         </div>
@@ -33,9 +29,7 @@
         <div class="devour ml-auto">
             {{#each sushi}}
                 {{#unless devoured}}
-                <button class="btn btn-danger px-2 align-middle w-100 mt-1 eat" data-id="{{id}}">
-                    Feed!
-                </button>
+                    {{> feed}}
                 {{/unless}}
             {{/each}}
         </div>
@@ -44,9 +38,7 @@
     <div class="tummy col-4 mr-auto">
         {{#each sushi}}
             {{#if devoured}}
-            <div class="card px-2 align-middle mt-1 eaten" data-id="{{id}}">
-                <p class="devoured">{{sushi_name}}</p>
-            </div>
+                {{> tummy}}
             {{/if}}
         {{/each}}
     </div>
