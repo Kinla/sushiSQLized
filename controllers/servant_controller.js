@@ -4,20 +4,11 @@ const express = require("express");
 const router = express.Router();
 
 // Router
-router.get("/", (req, res) => {
-  db.Sushi.findAll({
-    where: {},
-    include: [db.Servant]
-  }).then((data) => {
-    const sushiObj = {
-      sushi: data
-    };
-    res.render("index", sushiObj);
+router.post("/api/author/new", (req, res) => {
+  let sushiId = req.body.sushiId;
+  let authorName = req.body.authorName
 
-  });
-});
-
-router.post("/api/sushi", (req, res) => {
+  
   let sushi = {
     sushiName: req.body.name,
     devoured: false

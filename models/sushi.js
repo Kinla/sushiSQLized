@@ -14,11 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Sushi.associate = function(models) {
-    Sushi.belongsTo(models.Servant, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
+    Sushi.belongsTo(models.Servant);
   };
 
   return Sushi;

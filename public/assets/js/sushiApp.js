@@ -35,19 +35,26 @@ $(() => {
     });
   });
 
-  $(".eat").on("click", function() {
-    let id = $(this).data("id");
-    console.log(id);
+  $(".eat").on("click", function(event) {
+    event.preventDefault();
 
-    let devouredId = {
-      id: id
+    let sushiId = $(this).data("id");
+    let servantName = $(this).closest(".feed").find(".servant").val().trim();
+    let properServantName = titleCase(servantName);
+
+    console.log(sushiId, servantName);
+    
+    let data = {
+      sushiId: id,
+      servantName: properServantName
+
     };
 
-    $.ajax("/api/sushi/" + id ,{
-      type: "PUT",
-      data: devouredId
+    $.ajax("/api/servant/new" ,{
+      type: "POST",
+      data: data
     }).then(() => {
-      location.reload();
+      //location.reload();
     });
   });
 
