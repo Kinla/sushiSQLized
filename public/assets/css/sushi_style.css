@@ -15,10 +15,6 @@ textarea {
     max-width: 400px
 }
 
-.sushi p, .eaten p {
-    margin: 0;
-}
-
 .lists {
     height: 36px;
 }
@@ -27,8 +23,12 @@ textarea {
     width: 30px;
 }
 
-.eat, .delete {
+.eat, .delete, .dish {
     padding: 0px;
+}
+
+.delete {
+    margin-top: -4px;
 }
 
 .helpBtn {
@@ -40,18 +40,10 @@ textarea {
     display: none;
 }
 
-.dish {
-    margin: 4px 0px 0px;
-}
-
 p {
     margin: 0
 }
 
-.servant, .eat {
-    flex-shrink: 1
-}
-
-.devoured {
+.devoured, .dish {
     height: 30px
 }
