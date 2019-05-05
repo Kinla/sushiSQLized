@@ -15,11 +15,6 @@ textarea {
     max-width: 400px
 }
 
-.delete, .sushi, .eat, .eaten {
-    height: 30px;
-    overflow:auto;
-}
-
 .sushi p, .eaten p {
     margin: 0;
 }
@@ -36,18 +31,6 @@ textarea {
     padding: 0px;
 }
 
-.devour {
-    width: 70px;
-}
-
-.eaten {
-    background: rgb(190, 190, 190)
-}
-
-.devoured {
-    color: gray
-}
-
 .helpBtn {
     display: inline-block;
     vertical-align: text-bottom
@@ -57,6 +40,18 @@ textarea {
     display: none;
 }
 
-.menu {
-    flex-grow: 1
+.dish {
+    margin: 4px 0px 0px;
+}
+
+p {
+    margin: 0
+}
+
+.servant, .eat {
+    flex-shrink: 1
+}
+
+.devoured {
+    height: 30px
 }

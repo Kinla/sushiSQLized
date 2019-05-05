@@ -30,5 +30,8 @@
     "express-handlebars": "^3.0.2",
     "mysql2": "^1.6.5",
     "sequelize": "^5.8.1"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.12.0"
   }
 }

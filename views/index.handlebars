@@ -1,45 +1,39 @@
 <div class="row text-center">
-    <div class="col-4 ml-auto">
-        <h4 class="bg-danger rounded text-white align-middle lists">On the Plate</h4>
+    <div class="col-7 ml-auto">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h4>On the Plate</h4>
+            </div>
+            <div class="card-body ">
+                    {{#each sushi}}
+                        {{#unless devoured}}
+                <div class="row">
+                            {{> delete}}
+                            {{> dish}}
+                            {{> feed}}
+                </div>
+                <hr>
+                        {{/unless}}
+                    {{/each}}
+            </div>
+        </div>
     </div>
 
     <div class="col-4 mr-auto">
-        <h4 class="bg-danger rounded text-white align-middle lists">In the Tummy</h4>
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h4>In the Tummy
+                    <button class="btn btn-outline-dark helpBtn float-right"><i class="fas fa-trash"></i></button>               
+                </h4>
+            </div>
+            <div class="card-body">
+                {{#each sushi}}
+                    {{#if devoured}}
+                        {{> tummy}}
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-4 ml-auto d-flex flex-row">
-        <div class="remove mr-auto">
-            {{#each sushi}}
-                {{#unless devoured}}
-                    {{> delete}}
-                {{/unless}}
-            {{/each}}
-        </div>
-
-        <div class="menu mx-1">
-            {{#each sushi}}
-                {{#unless devoured}}
-                    {{> dish}}
-                {{/unless}}
-            {{/each}}
-        </div>
-
-        <div class="devour ml-auto">
-            {{#each sushi}}
-                {{#unless devoured}}
-                    {{> feed}}
-                {{/unless}}
-            {{/each}}
-        </div>
-    </div>
-
-    <div class="tummy col-4 mr-auto">
-        {{#each sushi}}
-            {{#if devoured}}
-                {{> tummy}}
-            {{/if}}
-        {{/each}}
-    </div>
-</div>

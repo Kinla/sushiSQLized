@@ -1,63 +1,64 @@
-const db = require("../models")
+const db = require("../models");
 
-const express = require("express")
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
 // Router
 router.get("/", (req, res) => {
-    db.Sushi.findAll({
-        include: [db.Servant]
-    }).then((data) => {
-        const sushiObj = {
-            sushi: data
-        }
-        res.render("index", sushiObj)
+  db.Sushi.findAll({
+    where: {},
+    include: [db.Servant]
+  }).then((data) => {
+    const sushiObj = {
+      sushi: data
+    };
+    res.render("index", sushiObj);
 
-    })
-})
+  });
+});
 
 router.post("/api/sushi", (req, res) => {
-    let sushi = {
-        sushi_name: req.body.name,
-        devoured: false
-    }
-    db.Sushi.create(sushi).then(() => {
-        res.end()
-    })
-})
+  let sushi = {
+    sushiName: req.body.name,
+    devoured: false
+  };
+  db.Sushi.create(sushi).then(() => {
+    res.end();
+  });
+});
 
 router.put("/api/sushi/:id", (req, res) => {
-    let id = req.body.id
-    db.Sushi.update(
-        {devoured: true},
-        {where: {id: id}}
-    ).then(()=> {
-        res.status(200).end()
-    }).catch(() => {
-        res.status(404).end()
-    })
-})
+  let id = req.body.id;
+  db.Sushi.update(
+    {devoured: true},
+    {where: {id: id}}
+  ).then(()=> {
+    res.status(200).end();
+  }).catch(() => {
+    res.status(404).end();
+  });
+});
 
 router.delete("/api/sushi/:id", (req, res) => {
-    let id = req.body.id
-    db.Sushi.destroy({
-        where: {
-            id: id
-        }
-    }).then(() => {
-        res.end()
-    })
-})
+  let id = req.body.id;
+  db.Sushi.destroy({
+    where: {
+      id: id
+    }
+  }).then(() => {
+    res.end();
+  });
+});
 
 router.delete("/api/sushi", (req, res) => {
-    let val = true
-    db.Sushi.destroy({
-        where: {
-            devoured: val
-        }
-    }).then(() => {
-        res.end()
-    })
-})
+  let val = true;
+  db.Sushi.destroy({
+    where: {
+      devoured: val
+    }
+  }).then(() => {
+    res.end();
+  });
+});
 
-module.exports = router  
+module.exports = router;
