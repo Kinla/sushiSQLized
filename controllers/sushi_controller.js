@@ -11,10 +11,8 @@ router.get("/", (req, res) => {
     const sushiObj = {
       sushi: data
     };
-    console.log(sushiObj);
 
     res.render("index", sushiObj);
-
   });
 });
 

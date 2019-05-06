@@ -22,8 +22,11 @@ router.post("/api/servant/new", (req, res) => {
           id: sushiId
         }}
       )
-        .then((data) => {
-          res.json(data);
+        .then(() => {
+          res.status(200).end();
+        })
+        .catch(() => {
+          res.status(404).end();
         });
     });
 });

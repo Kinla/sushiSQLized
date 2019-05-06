@@ -34,11 +34,11 @@ $(() => {
     });
   });
 
-  $(".eat").on("click", function(event) {
+  $(".feed").on("submit", function(event) {
     event.preventDefault();
 
-    let sushiId = $(this).data("id");
-    let servantName = $(this).closest(".feed").find(".servant").val().trim();
+    let sushiId = $(this).find(".servant").data("sushi");
+    let servantName = $(this).find(".servant").val().trim();
     let properServantName = titleCase(servantName);
 
     let data = {
