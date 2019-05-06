@@ -47,3 +47,7 @@ p {
 .devoured, .dish {
     height: 30px
 }
+
+hr:last-of-type {
+    display: none
+}
