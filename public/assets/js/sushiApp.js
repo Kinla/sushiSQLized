@@ -29,7 +29,6 @@ $(() => {
       type: "POST",
       data: newSushi
     }).then(() => {
-      console.log("new offering plated");
       // Reload the page to get the updated list
       location.reload();
     });
@@ -42,10 +41,8 @@ $(() => {
     let servantName = $(this).closest(".feed").find(".servant").val().trim();
     let properServantName = titleCase(servantName);
 
-    console.log(sushiId, servantName);
-    
     let data = {
-      sushiId: id,
+      sushiId: sushiId,
       servantName: properServantName
 
     };
@@ -54,7 +51,7 @@ $(() => {
       type: "POST",
       data: data
     }).then(() => {
-      //location.reload();
+      location.reload();
     });
   });
 

@@ -4,53 +4,28 @@ const express = require("express");
 const router = express.Router();
 
 // Router
-router.post("/api/author/new", (req, res) => {
+router.post("/api/servant/new", (req, res) => {
   let sushiId = req.body.sushiId;
-  let authorName = req.body.authorName
 
-  
-  let sushi = {
-    sushiName: req.body.name,
-    devoured: false
-  };
-  db.Sushi.create(sushi).then(() => {
-    res.end();
-  });
-});
-
-router.put("/api/sushi/:id", (req, res) => {
-  let id = req.body.id;
-  db.Sushi.update(
-    {devoured: true},
-    {where: {id: id}}
-  ).then(()=> {
-    res.status(200).end();
-  }).catch(() => {
-    res.status(404).end();
-  });
-});
-
-router.delete("/api/sushi/:id", (req, res) => {
-  let id = req.body.id;
-  db.Sushi.destroy({
+  db.Servant.findOrCreate({
     where: {
-      id: id
+      servantName: req.body.servantName
     }
-  }).then(() => {
-    res.end();
-  });
+  })
+    .then(([servant, created]) => {
+      return db.Sushi.update(
+        {
+          ServantId: servant.id,
+          devoured: true
+        },
+        {where: {
+          id: sushiId
+        }}
+      )
+        .then((data) => {
+          res.json(data);
+        });
+    });
 });
-
-router.delete("/api/sushi", (req, res) => {
-  let val = true;
-  db.Sushi.destroy({
-    where: {
-      devoured: val
-    }
-  }).then(() => {
-    res.end();
-  });
-});
-
 
 module.exports = router;

@@ -6,12 +6,13 @@ const router = express.Router();
 // Router
 router.get("/", (req, res) => {
   db.Sushi.findAll({
-    where: {},
     include: [db.Servant]
   }).then((data) => {
     const sushiObj = {
       sushi: data
     };
+    console.log(sushiObj);
+
     res.render("index", sushiObj);
 
   });
@@ -26,7 +27,7 @@ router.post("/api/sushi", (req, res) => {
     res.end();
   });
 });
-
+/*
 router.put("/api/sushi/:id", (req, res) => {
   let id = req.body.id;
   db.Sushi.update(
@@ -38,6 +39,7 @@ router.put("/api/sushi/:id", (req, res) => {
     res.status(404).end();
   });
 });
+*/
 
 router.delete("/api/sushi/:id", (req, res) => {
   let id = req.body.id;

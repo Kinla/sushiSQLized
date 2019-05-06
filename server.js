@@ -14,8 +14,10 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Set up routes
-const routes = require("./controllers/sushi_controller.js");
-app.use(routes);
+const sushiRoutes = require("./controllers/sushi_controller.js");
+const servantRoutes = require("./controllers/servant_controller.js");
+app.use(sushiRoutes);
+app.use(servantRoutes);
 
 // Set up handlebars
 const exphbs = require("express-handlebars");
