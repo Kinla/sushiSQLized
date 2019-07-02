@@ -18,6 +18,9 @@ This is a sushi logger with MySQL, Node, Express, Handlebars and a homemade ORM 
  * The eaten sushi will be in gray on the right hand side
     * The garbage can removes all tummy items
 
+### Demo
+![demo] (sushineko.PNG)
+
 ## Improvements/Bugs
  * Responsive design
  * Add update option for undevoured sushi
