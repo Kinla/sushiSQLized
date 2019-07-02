@@ -19,7 +19,7 @@ This is a sushi logger with MySQL, Node, Express, Handlebars and a homemade ORM 
     * The garbage can removes all tummy items
 
 ### Demo
-![demo][ushineko.PNG]
+![demo][sushineko.PNG]
 
 ## Improvements/Bugs
  * Responsive design
